@@ -4,12 +4,39 @@
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages.</p>
 
-eeeeeeeee
-
 
 <script src="calculator.js"></script>
+<script src="jquery-3.5.1.min.js"></script>
+<script src="lookup.js"></script>
 
-<button onclick="calculateReward()">Click me</button> 
+<br>
+Start system<input id="startSystem" type="text"><br>
+End system<input id="endSystem" type="text"><br>
+Collateral<input id="collateral" type="text" value="" class="to_format_number to_change"><br>
+Volume<input id="volume" type="text" value="" class="to_format_number to_change"><br>
+
+
+
+<button onclick="calculateReward(document.getElementById('startSystem').value,document.getElementById('endSystem').value,document.getElementById('collateral').value,document.getElementById('volume').value)">Calculate</button>
+
+<script>
+//https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+
+// Replace ./data.json with your JSON feed
+fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    // Work with JSON data here
+    console.log(data)
+  })
+  .catch(err => {
+    // Do something for an error here
+  })
+
+//window.alert(data.squadName);
+</script>
 
 </body>
 </html>
