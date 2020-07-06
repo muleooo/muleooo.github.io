@@ -9,9 +9,27 @@
 <script src="jquery-3.5.1.min.js"></script>
 <script src="lookup.js"></script>
 
+<script> 
+function appendText() {
+  var txt1 = "<p>Text.</p>";               // Create element with HTML 
+  var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+  var txt3 = document.createElement("p");  // Create with DOM
+  txt3.innerHTML = "Text.";
+  $(".inner").append(txt3);      // Append the new elements
+} 
+</script> 
+
+
 <br>
-Start system<input id="startSystem" type="text"><br>
-End system<input id="endSystem" type="text"><br>
+Start system
+
+<div id="startSystemList" class="inner"></div>
+
+<br>
+End system
+<div id="endSystemList"></div>
+
+<br>
 Collateral<input id="collateral" type="text" value="" class="to_format_number to_change"><br>
 Volume<input id="volume" type="text" value="" class="to_format_number to_change"><br>
 
@@ -20,22 +38,18 @@ Volume<input id="volume" type="text" value="" class="to_format_number to_change"
 <button onclick="calculateReward(document.getElementById('startSystem').value,document.getElementById('endSystem').value,document.getElementById('collateral').value,document.getElementById('volume').value)">Calculate</button>
 
 <script>
-//https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+var route;
+fetch('https://esi.evetech.net/latest/route/30002187/30000142/?datasource=tranquility&flag=secure')
+  .then(response => response.json())
+  .then(data => route = data);
 
-// Replace ./data.json with your JSON feed
-fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
-  .then(response => {
-    return response.json()
-  })
-  .then(data => {
-    // Work with JSON data here
-    console.log(data)
-  })
-  .catch(err => {
-    // Do something for an error here
-  })
+for (var i = 0; i < route.length; i++) {
+  console.log(route[i]);
+}
+  
+  //https://esi.evetech.net/latest/universe/systems/30003491/?datasource=tranquility&language=en-us
 
-//window.alert(data.squadName);
+
 </script>
 
 </body>
