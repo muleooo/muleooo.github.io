@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <body>
+<head>
+	<title>Haulers Channel Calculator</title>
+	<script type="text/javascript" src="calculator.js"></script>
+	<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="lookup.js"></script>
+</head>
+
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages.</p>
 
 
-<script src="calculator.js"></script>
-<script src="jquery-3.5.1.min.js"></script>
-<script src="lookup.js"></script>
+
 
 <script> 
 function appendText() {
@@ -22,12 +27,9 @@ function appendText() {
 
 <br>
 Start system
-
-<div id="startSystemList" class="inner"></div>
-
-<br>
+<input id="startSystem" type="text" value="30002187" class="to_format_number to_change"><br>
 End system
-<div id="endSystemList"></div>
+<input id="endSystem" type="text" value="30000142" class="to_format_number to_change"><br>
 
 <br>
 Collateral<input id="collateral" type="text" value="" class="to_format_number to_change"><br>
@@ -37,20 +39,7 @@ Volume<input id="volume" type="text" value="" class="to_format_number to_change"
 
 <button onclick="calculateReward(document.getElementById('startSystem').value,document.getElementById('endSystem').value,document.getElementById('collateral').value,document.getElementById('volume').value)">Calculate</button>
 
-<script>
-var route;
-fetch('https://esi.evetech.net/latest/route/30002187/30000142/?datasource=tranquility&flag=secure')
-  .then(response => response.json())
-  .then(data => route = data);
 
-for (var i = 0; i < route.length; i++) {
-  console.log(route[i]);
-}
-  
-  //https://esi.evetech.net/latest/universe/systems/30003491/?datasource=tranquility&language=en-us
-
-
-</script>
 
 </body>
 </html>
